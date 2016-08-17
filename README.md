@@ -1,6 +1,6 @@
 ## Preface
 
-The aim of these coding tips is to make our life easier as developers. Here I highly recommend the book "The Art of Readable Code". Currently it is available in our small library in #04-01. Please read it through and use it as a guideline for your daily coding.
+The aim of these coding tips is to make our life easier as developers. Here I highly recommend the book "The Art of Readable Code". 
 
 ## General
 
