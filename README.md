@@ -192,7 +192,7 @@ public class CstAddressAcsBean {
 }
 ```
 
-### Do Not Use Locks in Java###
+### Locks in Java###
 Locks in Java, e.g. synchronized blocks, exist in application level. In the production environment, there can be a server cluster consists of multiple servers, each running one instance of application. In that case, application level lock is insufficient because it does not apply to all instances. Try to use locks at database level instead. Be aware to lock the row only, not the entire table, and always release the lock.
 
 ### Write to ServletResponse Correctly
