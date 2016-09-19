@@ -259,7 +259,17 @@ class Foo {
 ```
 
 ### String replace() and replaceAll()
-The method replaceAll() is poorly named. Both methods replace ALL occurrence, the difference is that replaceAll() searches by regular expression. If regex is not used, please stick with replace().
+- The method replaceAll() is poorly named. Both methods replace ALL occurrence, the difference is that replaceAll() searches by regular expression.
+- Please stick with replace() unless regex is used. 
+- Exception may occur if you misused replaceAll() and the replacement string contains special characters like "$".
+
+```Java
+String s = "some amount";
+
+System.out.println(s.replace("amount", "$ 100")); // prints "some $ 100"
+
+System.out.println(s.replaceAll("amount", "$ 100")); // java.lang.IllegalArgumentException
+```
 
 ### Avoid Writing Java in JSP
 There are lots of pages in Front Site containing logic written in Java. However, it is not only difficult to read and maintain because you simply cannot put break points to debug, but also error prone because you will not have Java compile errors in JSP. Try to avoid that as much as possible.
