@@ -192,7 +192,7 @@ public class CstAddressAcsBean {
 }
 ```
 
-### Locks in Java###
+### Locks in Java
 Locks in Java, e.g. synchronized blocks, exist in application level. In the production environment, there can be a server cluster consists of multiple servers, each running one instance of application. In that case, application level lock is insufficient because it does not apply to all instances. Try to use locks at database level instead. Be aware to lock the row only, not the entire table, and always release the lock.
 
 ### Write to ServletResponse Correctly
@@ -288,7 +288,7 @@ Sometimes the library has build path specified explicitly inside the file and yo
 
 _Avoid:_ Modify the library directly and leaves no clues. Other developers may use the same library later, and they probably will encounter unexpected behaviors. It could take them days to figure out it is all because you have modified the library.
 
-### Variable definition###
+### Variable definition
 _Recommended:_
 ```JavaScript
 // Comma separated
@@ -303,7 +303,7 @@ _Avoid:_
 var a = b = c = 1;
 ```
 
-### Loops###
+### Loops
 When writing for..in loop, always remember to check hasOwnProperty().
 
 _Recommended:_
@@ -322,7 +322,7 @@ for (var key in obj) {
 }
 ```
 
-### Floating Number Computation###
+### Floating Number Computation
 You may do it by "multiply and divide" technique, or rather do it in Java using BigDecimal.
 
 _Recommended:_
@@ -335,10 +335,10 @@ _Avoid:_
 var x = 0.2 + 0.1; // x will be 0.30000000000000004
 ```
 
-### Useful Patterns###
+### Useful Patterns
 Please refer to [The Essentials of Writing High Quality JavaScript](http://code.tutsplus.com/tutorials/the-essentials-of-writing-high-quality-javascript--net-15145).
 
-### File Naming Convention###
+### File Naming Convention
 Use lower case (a-z) words separated by hyphen (-).
 
 _Recommended:_ **text-msg.js**
@@ -348,12 +348,12 @@ var TextMsg = (function () {
 })();
 ```
 
-### Debugging###
+### Debugging
 Use console.log() to debug, but remember to remove them when you commit the source code.
 
-## JQuery##
+## JQuery
 
-### Selector###
+### Selector
 When using a selected element multiple times, it's better to cache it to avoid multiple selection process, or use chaining if possible.
 
 _Recommended:_
@@ -373,7 +373,7 @@ $('#a').css("color", "red");
 $('#a').fadeOut();
 ```
 
-### Event Listener###
+### Event Listener
 When it's possible, try to bind the event listener to the most precise element, to avoid unecessary event handling.
 
 _Recommended:_
@@ -390,11 +390,11 @@ $(document).on('click', '#a .b', function(){
 });
 ```
 
-## AngularJS##
+## AngularJS
 
 Check out [AngularJS StyleGuide](https://github.com/johnpapa/angular-styleguide) before coding.
 
-### Constructor###
+### Constructor
 
 If you have read through the style guide, you may notice that the author recommend this way of writing a constructor:
 
@@ -441,7 +441,7 @@ var Util = (function() {
 })();
 ```
 
-### Promise###
+### Promise
 AngularJS uses $q service to handle promises. It is to mitigate the Pyramid of Doom, which occurs when you nest multiple callback functions. Following are some examples.
 
 Use $q.when() to wrap value
@@ -481,7 +481,7 @@ $http.get(url).then(function(response) {
 })
 ```
 
-### One-time Binding###
+### One-time Binding
 If the value is a constant, e.g. the menu text from dictionary, use one-time binding
 ```JavaScript
 {{::value}}
@@ -492,17 +492,17 @@ instead of
 ```
 Reducing the number of expressions being watched makes the digest loop faster.
 
-## Database##
+## Database
 
-### Choose a Good Primary Key###
+### Choose a Good Primary Key
 When your table design consists of a **composite primary key**, think twice before making it as the primary key. It is sometimes more convenient to introduce an extra ID/Seq column as the primary key, and create an unique index onto the compound columns.
 
-### JPA: getResultList() vs getSingleResult()###
+### JPA: getResultList() vs getSingleResult()
 * Always use **getResultList()** when you retrieves data.
 * Use **getSingleResult()** only when you are retrieving the result of SQL aggregate function, e.g. MIN, MAX, SUM, COUNT, etc.
 * Be aware that getSingleResult() will throw **NoResultException** when there is no data, and **NonUniqueResultException** where there are multiple rows of data. The above approach helps you eliminate these exceptions.
 
-### Do Not Extract Column Names into Constants###
+### Do Not Extract Column Names into Constants
 _Recommended:_ Write one SQL simple and clean.
 ```Java
 String sql = " select p.name, p.gender" +
@@ -529,7 +529,7 @@ String sql = "select p." + NAME + ", p." + GENDER +
                 " and p." + ADDRESS + "  = :address";
 ```
 
-### Do Not Loop Database Access###
+### Do Not Loop Database Access
 Database access can be costly. Instead of making multiple round trips to retrieve data one by one, group them and retrieve all data in one go. Otherwise it can hurt the performance.
 
 _Recommended:_
