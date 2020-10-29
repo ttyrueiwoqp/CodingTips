@@ -280,7 +280,7 @@ There are lots of pages in Front Site containing logic written in Java. However,
 Please refer to [JavaScript Module Pattern: In-Depth](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html) and have a better understanding of JavaScript module patterns.
 The rule of thumb is, **DO NOT** pollute global namespace.
 
-### Modify a Library###
+### Modify a Library
 Generally, it is not recommended because you may encounter problems when upgrading the library. However, sometimes we have to customize it to suit our needs. In that case, we should keep the impact minimum.
 
 _Recommended:_ Write an extension file and keep it in the project folder.
